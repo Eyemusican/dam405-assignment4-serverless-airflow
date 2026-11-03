@@ -80,7 +80,11 @@ def _parse_rows(payload):
         for value in row:
             if isinstance(value, bool) or not isinstance(value, (int, float)):
                 raise ValueError(f"Row {i} contains a non numeric value")
-            if not math.isfinite(value):
+            try:
+                number = float(value)
+            except OverflowError:
+                raise ValueError(f"Row {i} contains a number that is too large")
+            if not math.isfinite(number):
                 raise ValueError(f"Row {i} contains NaN or infinity")
 
     return np.array(rows, dtype=float)

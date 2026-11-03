@@ -1,7 +1,7 @@
 {
-  "model_version": "v1-initial",
-  "trained_at": "2026-11-03T09:31:36.854966+00:00",
-  "trained_by": "scripts/train_model.py",
+  "model_version": "v2-airflow-manual__2026-11-03T10_53_13_276531_00_00",
+  "trained_at": "2026-11-03T11:07:12.819965+00:00",
+  "trained_by": "airflow dag breast_cancer_ml_pipeline",
   "sklearn_version": "1.9.1",
   "n_features": 30,
   "feature_names": [

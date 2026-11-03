@@ -81,3 +81,10 @@ def test_empty_body_returns_400():
     event = {"httpMethod": "POST", "path": "/predict", "body": None}
     response = app.lambda_handler(event, None)
     assert response["statusCode"] == 400
+
+
+def test_huge_integer_returns_400():
+    payload = {"features": [10 ** 400] + [1.0] * 29}
+    response = app.lambda_handler(payload, None)
+    assert response["statusCode"] == 400
+    assert "too large" in body_of(response)["error"]
