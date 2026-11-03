@@ -1,0 +1,50 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: DAM405 Assignment 4, serverless breast cancer prediction (Lambda container image behind API Gateway)
+
+Parameters:
+  LogLevel:
+    Type: String
+    Default: INFO
+    AllowedValues: [DEBUG, INFO, WARNING, ERROR]
+    Description: Log level for the Lambda function
+
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 1024
+
+Resources:
+  PredictFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Image
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          LOG_LEVEL: !Ref LogLevel
+          MAX_ROWS: "100"
+      Events:
+        Predict:
+          Type: Api
+          Properties:
+            Path: /predict
+            Method: post
+        Health:
+          Type: Api
+          Properties:
+            Path: /health
+            Method: get
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: ./lambda_fn
+      DockerTag: v1
+
+Outputs:
+  PredictApiUrl:
+    Description: API Gateway endpoint for predictions
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/predict"
+  PredictFunctionName:
+    Description: Name of the Lambda function
+    Value: !Ref PredictFunction

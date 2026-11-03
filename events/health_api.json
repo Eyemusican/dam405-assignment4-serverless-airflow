@@ -1,0 +1,10 @@
+{
+  "httpMethod": "GET",
+  "path": "/health",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "queryStringParameters": null,
+  "isBase64Encoded": false,
+  "body": null
+}

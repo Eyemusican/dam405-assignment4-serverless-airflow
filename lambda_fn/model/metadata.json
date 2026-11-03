@@ -1,0 +1,49 @@
+{
+  "model_version": "v1-initial",
+  "trained_at": "2026-11-03T09:31:36.854966+00:00",
+  "trained_by": "scripts/train_model.py",
+  "sklearn_version": "1.9.1",
+  "n_features": 30,
+  "feature_names": [
+    "mean radius",
+    "mean texture",
+    "mean perimeter",
+    "mean area",
+    "mean smoothness",
+    "mean compactness",
+    "mean concavity",
+    "mean concave points",
+    "mean symmetry",
+    "mean fractal dimension",
+    "radius error",
+    "texture error",
+    "perimeter error",
+    "area error",
+    "smoothness error",
+    "compactness error",
+    "concavity error",
+    "concave points error",
+    "symmetry error",
+    "fractal dimension error",
+    "worst radius",
+    "worst texture",
+    "worst perimeter",
+    "worst area",
+    "worst smoothness",
+    "worst compactness",
+    "worst concavity",
+    "worst concave points",
+    "worst symmetry",
+    "worst fractal dimension"
+  ],
+  "label_meaning": {
+    "0": "benign",
+    "1": "malignant"
+  },
+  "metrics": {
+    "accuracy": 0.9649,
+    "precision": 0.975,
+    "recall": 0.9286,
+    "f1": 0.9512
+  }
+}

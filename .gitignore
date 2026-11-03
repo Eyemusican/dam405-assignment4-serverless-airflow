@@ -1,0 +1,24 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# SAM build output
+.aws-sam/
+
+# Airflow runtime files
+logs/
+*.pid
+airflow.db
+
+# Data and models produced by the pipeline
+data/
+lambda_fn/model/*.joblib
+
+# Environment and secrets
+.env
+
+# OS
+Thumbs.db
+.DS_Store

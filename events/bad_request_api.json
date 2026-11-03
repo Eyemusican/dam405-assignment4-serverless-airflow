@@ -1,0 +1,10 @@
+{
+  "httpMethod": "POST",
+  "path": "/predict",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "queryStringParameters": null,
+  "isBase64Encoded": false,
+  "body": "{\"features\": [1.0, 2.0, 3.0]}"
+}
